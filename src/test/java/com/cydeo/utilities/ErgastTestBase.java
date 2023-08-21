@@ -4,15 +4,17 @@ import io.restassured.RestAssured;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 
-public class HrTestBase {
-
+public abstract class ErgastTestBase {
 
     @BeforeAll
     public static void init(){
-        RestAssured.baseURI = "http://54.164.41.54:1000/ords/hr";
+
+        RestAssured.baseURI = "http://ergast.com/api/f1/";
     }
 
+    @AfterAll
+    public static void destroy(){
 
-
-
+        RestAssured.reset();
+    }
 }

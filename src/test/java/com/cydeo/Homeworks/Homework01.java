@@ -7,6 +7,9 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+import java.util.Map;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -87,6 +90,36 @@ public class Homework01 {
         assertTrue(response.headers().hasHeaderWithName("Date"));
 
         assertEquals("chunked",response.header("Transfer-Encoding"));
+
+        //third link rel is "describedby"
+
+        assertEquals("describedby", response.path("links[2].rel"));
+
+        //get link details
+
+        List<Map<String, Object>> links = response.path("links");
+
+        for (Map<String, Object> eachLink : links) {
+            System.out.println(eachLink);
+        }
+
+        //get me last object of llinks rel information
+
+        String lastRel = response.path("links[-1].rel");
+        System.out.println(lastRel);
+
+        Map<String, Object> lastLinkMap = links.get(links.size() - 1);
+        System.out.println(lastLinkMap.get("rel"));
+
+        //get all rels
+        List<String> path = response.path("links.rel");
+        System.out.println(path);
+
+        //find all href that endswith regions/1 by using links arraylist and stream
+
+        
+
+
 
     }
 }
