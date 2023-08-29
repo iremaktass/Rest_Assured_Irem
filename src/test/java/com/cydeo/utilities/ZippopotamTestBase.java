@@ -8,6 +8,6 @@ public abstract class ZippopotamTestBase {
     @BeforeAll
 
     public static void init(){
-        RestAssured.baseURI = "http://api.zippopotam.us";
+        RestAssured.baseURI = "https://api.zippopotam.us";
     }
 }

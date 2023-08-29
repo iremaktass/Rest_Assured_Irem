@@ -83,9 +83,10 @@ public class Homework02 extends HrTestBase {
         List<String> allJobId = response.path("items.job_id");
 
         for (String allJobWithSA : allJobId) {
+            System.out.println(allJobWithSA);
             assertTrue(allJobWithSA.startsWith("SA"));
-            //assertEquals("SA", allJobWithSA.substring(0,2));
-                System.out.println(allJobWithSA);
+
+
         }
 
 
@@ -93,15 +94,17 @@ public class Homework02 extends HrTestBase {
         List<Integer> allDepartmentId = response.path("items.department_id");
 
         for (Integer eachDepartmentId : allDepartmentId) {
-            assertTrue(eachDepartmentId.equals(80));
-            //assertEquals("80", eachDepartmentId.toString().substring(0,2));
             System.out.println(eachDepartmentId);
+            assertTrue(eachDepartmentId.equals(80));
+
+
         }
 
 
 
         int count = response.path("count");
         System.out.println(count);
+        assertEquals(25, count);
     }
 
 

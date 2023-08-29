@@ -53,9 +53,10 @@ Driver driver=getObject(“pathOfDriver”,Driver.class)
     @Test
     public void test1() {
 
+        String json = ".json";
         Response response = given().accept(ContentType.JSON)
                 .pathParam("driverId", "alonso")
-                .when().get("drivers/{driverId}.json");
+                .when().get("drivers/{driverId}"+json);
         response.prettyPrint();
 
         System.out.println("---------JSONPATH---------");
