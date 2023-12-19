@@ -26,6 +26,7 @@ public class P01_simpleGetRequest {
 
         //how ro print json respond body on console
         response.prettyPrint();
+        
     }
 
 }
